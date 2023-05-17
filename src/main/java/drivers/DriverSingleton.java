@@ -1,3 +1,7 @@
+package drivers;
+
+import drivers.strategies.DriverStrategy;
+import drivers.strategies.DriverStrategyImplementer;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
@@ -8,9 +12,11 @@ public class DriverSingleton {
     private static WebDriver driver;
 
     private DriverSingleton (String key){
+
         instantiate(key);
     }
     public WebDriver instantiate(String string){
+
         DriverStrategy driverStrategy = DriverStrategyImplementer.chooseStrategy(string);
         assert driverStrategy != null;
         driver = driverStrategy.setStrategy();
@@ -20,6 +26,7 @@ public class DriverSingleton {
     }
 
     public static  DriverSingleton getInstance(String key){
+
         if (instance==null){
             instance = new DriverSingleton(key);
         }
