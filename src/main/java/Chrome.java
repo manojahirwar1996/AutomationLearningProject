@@ -6,7 +6,7 @@ public class Chrome implements DriverStrategy{
 
     public WebDriver setStrategy() {
         ChromeOptions options= new ChromeOptions();
-        options.setExperimentalOption("useAutomationExtension", false);
+   //     options.setExperimentalOption("useAutomationExtension", false);
         options.addArguments("--no-sandbox");
         return new ChromeDriver(options);
     }
